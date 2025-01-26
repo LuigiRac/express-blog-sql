@@ -8,4 +8,14 @@ function index(req, res) {
     });
 }
 
-module.exports = { index };
+
+function destroy(req, res) {
+    const { id } = req.params;
+    const query = 'DELETE FROM posts WHERE id = ?';
+    connection.query(query, [id], (err, results) => {
+        res.status(200).json({ message: `Post ${id} cancellato` });
+    });
+
+}
+
+module.exports = { index, destroy };

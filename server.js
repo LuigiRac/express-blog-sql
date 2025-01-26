@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
     res.send('Home page')
 });
 app.get('/posts', postController.index);
+app.delete('/posts/:id', postController.destroy);
 
 app.use(errorsHandler);
 app.use(notFound);
