@@ -20,6 +20,8 @@ app.get('/', (req, res) => {
 });
 app.get('/posts', postController.index);
 app.delete('/posts/:id', postController.destroy);
+app.get('/posts/:id', postController.show);
+
 
 app.use(errorsHandler);
 app.use(notFound);
